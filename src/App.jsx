@@ -1,7 +1,9 @@
 
 import { CORE_CONCEPTS } from './data';
-import { Header } from './components/Header.jsx';
-import { CoreConcept } from './components/CoreConcept.jsx';
+
+import Header from './components/Header/Header';
+import CoreConcept from './components/CoreConcept';
+
 
 
 
