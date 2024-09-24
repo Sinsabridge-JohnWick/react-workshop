@@ -16,13 +16,26 @@ function App() {
 
 
   function handleSelect(selectButton) {
-
     setSelectedTopic(selectButton)
     console.log(selectedTopic);
-
-
-
   }
+
+  let tabConent = <p>Please select a topic</p>
+
+  if (selectedTopic) {
+    tabConent = <div id='tab-content'>
+
+      <h3>{EXAMPLES[selectedTopic].title}</h3>
+      <p>{EXAMPLES[selectedTopic].description}</p>
+      <pre>
+        <code>
+          {EXAMPLES[selectedTopic].code}
+        </code>
+      </pre>
+    </div>
+  }
+
+
   return (
     <div>
       <Header />
@@ -53,22 +66,10 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {!selectedTopic && <p>please select a topic</p>}
 
-          {selectedTopic && (<div id='tab-content'>
-
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
-              <code>
-                {EXAMPLES[selectedTopic].code}
-              </code>
-            </pre>
-          </div>)}
-
+          {tabConent}
 
         </section>
-
 
       </main>
     </div>
